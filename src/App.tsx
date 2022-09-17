@@ -1,12 +1,15 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
 import { Counter } from './components/Counter';
 import './index.scss';
 
 function App() {
     return (
         <div className="app">
-            adadqw123sacz
-            <Counter />
+            <Routes>
+                <Route path={'/about'} />
+                <Route path={'/'} />
+            </Routes>
         </div>
     );
 }
