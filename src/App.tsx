@@ -1,25 +1,20 @@
 import { Link } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
-import { Suspense, useState } from 'react';
+import { Suspense, useContext, useState } from 'react';
 
+import { Theme, ThemeContext } from './theme/ThemeContext';
 import { AboutPageAsync } from './pages/AboutPage/AboutPage.async';
 import { MainPageAsync } from './pages/MainPage/MainPage.async';
 
 import './styles/index.scss';
-
-export enum Theme {
-    LIGHT = 'light',
-    DARK = 'dark',
-}
+import { useTheme } from './theme/useTheme';
+import { classNames } from './helpers/className/className';
 
 function App() {
-    const [theme, setTheme] = useState<Theme>(Theme.LIGHT);
-
-    const toggleTheme = () => {
-        setTheme(theme === Theme.DARK ? Theme.LIGHT : Theme.DARK);
-    };
+    const { theme, toggleTheme } = useTheme();
+    const bool = true;
     return (
-        <div className={`app ${theme}`}>
+        <div className={classNames('app', {}, [theme])}>
             <button onClick={toggleTheme}>переключить тему</button>
             <Link to={'/'}>Главная</Link>
             <Link to={'/about'}>О сайте</Link>
