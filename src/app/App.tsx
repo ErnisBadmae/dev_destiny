@@ -2,17 +2,17 @@ import { Link } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
 import { Suspense, useContext, useState } from 'react';
 
-import { Theme, ThemeContext } from './theme/ThemeContext';
-import { AboutPageAsync } from './pages/AboutPage/AboutPage.async';
-import { MainPageAsync } from './pages/MainPage/MainPage.async';
+import { Theme, ThemeContext } from '../shared/config/theme/ThemeContext';
+import { AboutPageAsync } from '../pages/AboutPage/AboutPage.async';
+import { MainPageAsync } from '../pages/MainPage/MainPage.async';
 
+import { useTheme } from './providers/ThemeProvider/lib/useTheme';
+import { classNames } from '../helpers/className/className';
 import './styles/index.scss';
-import { useTheme } from './theme/useTheme';
-import { classNames } from './helpers/className/className';
 
 function App() {
     const { theme, toggleTheme } = useTheme();
-    const bool = true;
+
     return (
         <div className={classNames('app', {}, [theme])}>
             <button onClick={toggleTheme}>переключить тему</button>
