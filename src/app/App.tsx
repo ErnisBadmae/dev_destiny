@@ -1,13 +1,13 @@
 import { Link } from 'react-router-dom';
 import { Route, Routes } from 'react-router-dom';
-import { Suspense, useContext, useState } from 'react';
+import { Suspense } from 'react';
 
-import { Theme, ThemeContext } from '../shared/config/theme/ThemeContext';
-import { AboutPageAsync } from '../pages/AboutPage/AboutPage.async';
-import { MainPageAsync } from '../pages/MainPage/MainPage.async';
+import { AboutPageAsync } from 'pages/AboutPage/AboutPage.async';
+import { MainPageAsync } from 'pages/MainPage/MainPage.async';
 
-import { useTheme } from './providers/ThemeProvider/lib/useTheme';
-import { classNames } from '../helpers/className/className';
+import { classNames } from 'helpers/className/className';
+import { useTheme } from './providers/ThemeProvider';
+
 import './styles/index.scss';
 
 function App() {
