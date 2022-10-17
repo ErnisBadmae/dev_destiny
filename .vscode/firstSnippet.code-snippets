@@ -3,20 +3,20 @@
 	"scope": "typescript, typescriptreact",
 	"prefix": "crfc",
 	"body": [
-	"import classnames from 'classnames';",
-	"import CssClasses from './${TM_FILENAME_BASE}.module.scss';",
+	"import {classNames} from 'shared/lib/className/className';",
+	"import cls from './${TM_FILENAME_BASE}.module.scss';",
 	"",
-	"import type { PropsWithChildren } from 'react';",
+	
 	"",
 	"interface ${TM_FILENAME_BASE}Props {",
 	" className?: string;",
 	"}",
 	"",
-	"export function ${TM_FILENAME_BASE}(props: PropsWithChildren<${TM_FILENAME_BASE}Props>) {",
-	" const { className } = props;",
+	"export const ${TM_FILENAME_BASE}=({className}:${TM_FILENAME_BASE}Props)=>  {",
+	
 	"",
 	" return (",
-	"<>","</>"," );",
+	"<div className={classNames(cls.${TM_FILENAME_BASE}, {}, [className])}>","</div>"," );",
 	"}",
 	],
 	"description": "Создать React-компонент по умолчанию. Импортируется scss-модуль и функция для работы с классами classnames."
