@@ -5,24 +5,18 @@ import { Suspense } from 'react';
 import { classNames } from 'shared/lib/className/className';
 import { useTheme } from './providers/ThemeProvider';
 
+import { AppRouter } from './providers/router';
 import './styles/index.scss';
-import { AboutPage } from 'pages/AboutPage';
-import { MainPage } from 'pages/MainPage';
+import { Navbar } from 'widgets/Navbar';
 
 function App() {
     const { theme, toggleTheme } = useTheme();
 
     return (
         <div className={classNames('app', {}, [theme])}>
+            <Navbar />
+            <AppRouter />
             <button onClick={toggleTheme}>переключить тему</button>
-            <Link to={'/'}>Главная</Link>
-            <Link to={'/about'}>О сайте</Link>
-            <Suspense fallback={<div> Loading ...</div>}>
-                <Routes>
-                    <Route path={'/about'} element={<AboutPage />} />
-                    <Route path={'/'} element={<MainPage />} />
-                </Routes>
-            </Suspense>
         </div>
     );
 }
