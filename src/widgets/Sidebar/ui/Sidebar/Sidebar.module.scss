@@ -1,3 +1,11 @@
 .Sidebar {
-    height: calc(100vh) - var(--navbar-height)
+    height: calc(100vh - var(--navbar-height));
+    width: var(--sidebar-width);
+    // transform: translateX(300px);
+    background: var(--inverted-bg-color);
+    position: relative;
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
 }
