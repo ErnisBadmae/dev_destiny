@@ -4,6 +4,8 @@
     // transform: translateX(300px);
     background: var(--inverted-bg-color);
     position: relative;
+    transition: width 0.5s;
+    
 }
 
 .collapsed {
