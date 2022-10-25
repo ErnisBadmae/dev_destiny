@@ -1,7 +1,17 @@
-import React from 'react';
+
+import { useTranslation } from 'react-i18next';
 
 function MainPage() {
-    return <div>MainPage</div>;
+    
+    //не отрисовывает эти компоненты
+    //
+    const {t} = useTranslation()
+
+
+    return (
+    <div style={{background:"red"}}>
+       {t('Главная страница')}   
+    </div>)
 }
 
 export default MainPage;

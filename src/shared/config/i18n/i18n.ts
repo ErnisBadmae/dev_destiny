@@ -12,14 +12,16 @@ i18n
   .init({
     fallbackLng: 'en',
     debug: __IS_DEV__, 
+    // дефолтный язык
+    lng: "ru",
 
     interpolation: {
       escapeValue: false, // not needed for react as it escapes by default
     },
 
-    backend: {
-        loadPath:'/locales/{{lng}}/{{ns}}.json'
-    }
+    // backend: {
+//        loadPath:'/locales/{{lng}}/{{ns}}.json'
+//    }
   });
 
 
