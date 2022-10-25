@@ -12,8 +12,17 @@ import { useTranslation } from 'react-i18next';
 
 const Component = () =>  {
     const { t, i18n } = useTranslation();
-  
-    return <h1>{t('Тестовый перевод')}</h1>
+
+    const toggle = () => {
+        i18n.changeLanguage(i18n.language ==='ru' ? 'en' : 'ru')
+    }
+   
+    return (
+      <div>
+        <button onClick={toggle}>{t("Перевести")}</button>
+        {t("Тестовый пример")}
+      </div>
+    );
   }
 
 function App() {
