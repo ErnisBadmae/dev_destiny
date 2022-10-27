@@ -7,6 +7,8 @@ function AboutPage() {
     return (
     <div >
         {t('О сайте')}
+      
+
     </div>
     )
 }
