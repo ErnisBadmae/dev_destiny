@@ -5,7 +5,7 @@ function AboutPage() {
     const {t} = useTranslation('about')
 
     return (
-    <div style={{background:"red"}}>
+    <div >
         {t('О сайте')}
     </div>
     )
