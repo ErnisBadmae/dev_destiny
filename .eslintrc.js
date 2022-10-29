@@ -18,14 +18,14 @@ module.exports = {
     rules: {
         "no-var": 2,
         "react/jsx-indent": [2,4],
-        // indent: [2,4],
         "react/jsx-filename-extension":[2, {"extensions": [".js", ".jsx", ".tsx"]}], 
         "react/require-default-props":'off',
         "react/react-in-jsx-scope":'off',
         "react/jsx-props-no-spreading":'warn',
         "react/function-component-definition":'off',
         "no-underscore-dangle":'off ',
-        "18next/no-literal-string": ['error', {markupOnly:true}]
+        "18next/no-literal-string": ['error', {markupOnly:true}],
+        "max-len": ['error', {"ignoreComments": true}]
     },
     globals: {
     '__IS_DEV__':true
