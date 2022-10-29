@@ -1,11 +1,9 @@
 .Sidebar {
     height: calc(100vh - var(--navbar-height));
     width: var(--sidebar-width);
-    // transform: translateX(300px);
     background: var(--inverted-bg-color);
     position: relative;
     transition: width 0.5s;
-    
 }
 
 .collapsed {
@@ -18,9 +16,8 @@
     display: flex;
     justify-content: center;
     width: 100%;
-
 }
 
-.lang{
+.lang {
     margin-left: 28px;
 }
