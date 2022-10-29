@@ -1,4 +1,4 @@
-
+import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 function MainPage() {
@@ -7,9 +7,9 @@ function MainPage() {
 
 
     return (
-      <div>
-        {t("Главная страница")}
-      </div>
+        <div>
+            {t("Главная страница")}
+        </div>
     );
 }
 
