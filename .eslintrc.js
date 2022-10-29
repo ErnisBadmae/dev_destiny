@@ -4,13 +4,16 @@ module.exports = {
         browser: true,
         es2021: true,
     },
-    extends: ["plugin:react/recommended"],
+    extends: [
+        "plugin:react/recommended", 
+        "plugin: i18next/recommended",
+    ],
     overrides: [],
     parserOptions: {
         ecmaVersion: "latest",
         sourceType: "module",
     },
-    plugins: ["react"],
+    plugins: ["react", "i18next"],
     rules: {
         "no-var": 2,
         "react/jsx-indent": [2,4],
@@ -20,7 +23,8 @@ module.exports = {
         "react/react-in-jsx-scope":'off',
         "react/jsx-props-no-spreading":'warn',
         "react/function-component-definition":'off',
-        "no-underscore-dangle":'off '
+        "no-underscore-dangle":'off ',
+        "18next/no-literal-string": ['error', {markupOnly:true}]
     },
     globals: {
     '__IS_DEV__':true
