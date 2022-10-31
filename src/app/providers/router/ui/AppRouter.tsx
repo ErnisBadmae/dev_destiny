@@ -8,7 +8,7 @@ function AppRouter() {
         <Suspense fallback={<div> Loading ...</div>}>
             <Routes>
                 {Object.values(routeConfig).map(({ element, path }) => {
-                        return <Route
+                    return <Route
                         key={path}
                         path={path}
                         element={(
@@ -17,10 +17,10 @@ function AppRouter() {
                                     {element}
                                 </div>
                             </Suspense>
-                         )}
-                        />;
+                        )}
+                    />;
                         
-                    })}
+                })}
             </Routes>
         </Suspense>
  

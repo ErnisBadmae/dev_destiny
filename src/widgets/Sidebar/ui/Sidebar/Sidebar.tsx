@@ -1,5 +1,5 @@
+/* eslint-disable i18next/no-literal-string */
 import { useState } from 'react';
-import { clearScreenDown } from 'readline';
 import { classNames } from 'shared/lib/className/className';
 import { LangSwitch } from 'shared/ui/LangSwitch/LangSwitch';
 import { ThemeSwitcher } from 'widgets/ThemeSwitcher';
@@ -19,14 +19,18 @@ export const Sidebar=({className}:SidebarProps)=>  {
        
     }
  
- return (
-     <div className={classNames(cls.Sidebar, {[cls.collapsed]: collapsed}, [className])}
-    >
-         <button onClick={onToggle}>toggle</button>
-         <div className={cls.switchers}>
-             <ThemeSwitcher/>
-             <LangSwitch className={cls.lang}/>
-         </div>
-     </div>
- );
+    return (
+        <div className={classNames(cls.Sidebar, 
+            {[cls.collapsed]: collapsed}, [className])}
+        >
+   
+            <button onClick={onToggle}>
+                toggle
+            </button>
+            <div className={cls.switchers}>
+                <ThemeSwitcher/>
+                <LangSwitch className={cls.lang}/>
+            </div>
+        </div>
+    );
 }
