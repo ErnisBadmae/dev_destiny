@@ -3,10 +3,8 @@ import { useTheme } from "./providers/ThemeProvider";
 
 import { AppRouter } from "./providers/router";
 import { Navbar } from "widgets/Navbar";
-
 import { Sidebar } from "widgets/Sidebar";
 import { Suspense } from "react";
-
 
 import "./styles/index.scss";
 
@@ -17,7 +15,6 @@ function App() {
         <div className={classNames("app", {}, [theme])}>
             <Suspense fallback="">
                 <Navbar />
-             
                 <div className="content-page">
                     <Sidebar />
                     <AppRouter />
