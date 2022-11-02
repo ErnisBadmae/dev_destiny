@@ -3,10 +3,6 @@ import { useTranslation } from 'react-i18next';
 
 import { Button } from 'shared/ui/Buttons/Button';
 
-
-
-
-
 //компонент для тестрирования ErrorBoundary
 
 export const BugButton=()=>  {

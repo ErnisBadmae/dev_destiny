@@ -8,6 +8,9 @@ export default {
     moduleDirectories: [
         "node_modules"
     ],
+    modulePaths: [
+        '<rootDir>src'
+    ],
 
     moduleFileExtensions: [
         "js",
@@ -21,5 +24,11 @@ export default {
         '<rootDir>src/**/*(*.)@(spec|test).[tj]s?(x)'
     ],
     rootDir: '../../',
+    setupFilesAfterEnv: [
+        '<rootDir>config/jest/setupTests.ts'
+    ],
+    moduleNameMapper: {
+        "\\.(css|less)$": "identity-obj-proxy"
+    }
    
 };
