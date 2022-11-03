@@ -1,4 +1,5 @@
 /* eslint-disable i18next/no-literal-string */
+import React from 'react';
 import { useState } from 'react';
 import { classNames } from 'shared/lib/className/className';
 import { LangSwitch } from 'shared/ui/LangSwitch/LangSwitch';
@@ -19,8 +20,11 @@ export const Sidebar=({className}:SidebarProps)=>  {
     }
  
     return (
-        <div className={classNames(cls.Sidebar, 
-            {[cls.collapsed]: collapsed}, [className])}
+        <div 
+            data-testid="custom-element"
+            className={classNames(cls.Sidebar, 
+                {[cls.collapsed]: collapsed}, 
+                [className])}
         >
             <button onClick={onToggle}>
                 toggle
