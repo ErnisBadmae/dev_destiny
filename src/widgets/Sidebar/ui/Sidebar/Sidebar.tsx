@@ -21,7 +21,11 @@ export const Sidebar=({className}:SidebarProps)=>  {
  
     return (
         <div 
+<<<<<<< HEAD
             data-testid="custom-element"
+=======
+            data-testId="sidebar"
+>>>>>>> 42ac3708aeea6dff982cd57be0f12f71bc44ffad
             className={classNames(cls.Sidebar, 
                 {[cls.collapsed]: collapsed}, 
                 [className])}
