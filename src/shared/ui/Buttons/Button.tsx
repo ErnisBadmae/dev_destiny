@@ -26,6 +26,7 @@ export const Button:FC<ButtonProps> = (props) =>  {
             type="button" 
             className={classNames(cls.Button,
                 {[cls[theme]]: true}, [className])}
+            /* eslint-disable react/jsx-props-no-spreading */
             {...otherProps}
         >
             {children}
