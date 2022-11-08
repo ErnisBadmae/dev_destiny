@@ -1,0 +1,34 @@
+name: to lint, to test, to build
+run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+on: 
+  push:
+    branches: [dev] 
+  pull_request:
+    branches: [dev] 
+jobs:
+  pipeline:
+    runs-on: ubuntu-latest
+  strategy:
+  matrix:
+    node-version: [16.x]
+
+    steps:
+      -uses: actions/checkout@v2
+      -name: Starting Node.js ${{ matrix.node-version }} 
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+      -name: install node_modules
+      run: npm install
+
+      -name: build prod
+      run: npm run build:prod
+
+      -name: linting typescript
+      run: npm run lint:ts
+
+      -name: linting scss
+      run: npm run lint:scss
+
+     -name: unit testing
+      run: npm run test:unit
