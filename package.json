@@ -92,7 +92,8 @@
     "react-router-dom": "^6.2.1"
   },
   "resolutions": {
-    "@storybook/{app}/webpack": "^5"
+    "webpack": "5.74.0",
+    "webpack-virtual-modules": "0.4.2"
   },
   "loki": {
     "configurations": {
