@@ -1,0 +1,24 @@
+{
+	"Create custom react function component": {
+	"scope": "typescript, typescriptreact",
+	"prefix": "crfc",
+	"body": [
+	"import {classNames} from 'shared/lib/className/className';",
+	"import cls from './${TM_FILENAME_BASE}.module.scss';",
+	"",
+	
+	"",
+	"interface ${TM_FILENAME_BASE}Props {",
+	" className?: string;",
+	"}",
+	"",
+	"export const ${TM_FILENAME_BASE}=({className}:${TM_FILENAME_BASE}Props)=>  {",
+	
+	"",
+	" return (",
+	"<div className={classNames(cls.${TM_FILENAME_BASE}, {}, [className])}>","</div>"," );",
+	"}",
+	],
+	"description": "Создать React-компонент по умолчанию. Импортируется scss-модуль и функция для работы с классами classnames."
+	}
+	}
