@@ -1,7 +1,6 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 import * as path from 'path';
 import { BuildPaths } from './../build/types/config';
-import webpack, { RuleSetRule } from 'webpack'
+import webpack from 'webpack'
 import { buildCssLoaders } from '../build/loaders/buildCssLoaders';
 
 export default ({config}: {config: webpack.Configuration}) => {
