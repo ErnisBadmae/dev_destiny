@@ -17,4 +17,3 @@ render(
     document.getElementById('root')
 );
 
-//для заливки
