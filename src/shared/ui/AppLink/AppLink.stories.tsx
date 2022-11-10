@@ -1,3 +1,4 @@
+import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
@@ -11,6 +12,9 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    args: {
+        to: '/',
+    },
 } as ComponentMeta<typeof AppLink>;
 
 const Template: ComponentStory<typeof AppLink> = (args) => <AppLink {...args} />;
@@ -20,8 +24,6 @@ Primary.args = {
     children: 'Text',
     theme: AppLinkTheme.PRIMARY
 };
-
-
 
 export const Secondary = Template.bind({});
 Secondary.args = {
