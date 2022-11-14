@@ -6,10 +6,6 @@
     transition: width 0.5s;
 }
 
-.collapsed {
-    width: var(--sidebar-width-collapsed);
-}
-
 .switchers {
     position: absolute;
     bottom: 40px;
@@ -20,4 +16,68 @@
 
 .lang {
     margin-left: 28px;
+}
+
+.collapseBtn {
+    position: absolute;
+    right: -32px;
+    bottom: 20px;
+}
+
+.background {
+    background: var(--bg-color);
+    color: var(--primary-color);
+    border: none;
+}
+
+.backgroundInverted {
+    background: var(--inverted-bg-color);
+    color: var(--inverted-primary-color);
+    border: none;
+}
+
+.square {
+    height: 40px;
+    width: 40px;
+}
+
+.items {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left: 10px;
+}
+
+.item {
+    margin-top: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.link {
+    margin-top: 10px;
+    opacity: 1;
+}
+
+.icon {
+    fill: var(--secondary-color);
+}
+
+.collapsed {
+    width: var(--sidebar-width-collapsed);
+
+    .switchers {
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+
+    .lang {
+        margin-left: 0;
+    }
+
+    .link {
+        opacity: 0;
+        transition: 0.2s opacity;
+        width: 0;
+    }
 }
