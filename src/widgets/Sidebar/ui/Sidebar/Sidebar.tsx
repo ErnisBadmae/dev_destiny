@@ -23,12 +23,11 @@ export const Sidebar=({className}:SidebarProps)=>  {
     const {t} = useTranslation()
     const onToggle =() => {
         setCollapsed(prev => !prev)
-        console.log('toggle',collapsed)
     }
  
     return (
         <div 
-            data-testid="custom-element"
+            data-testid="sidebar"
             className={classNames(cls.Sidebar, 
                 {[cls.collapsed]: collapsed}, 
                 [className])}
@@ -87,8 +86,3 @@ export const Sidebar=({className}:SidebarProps)=>  {
 }
 
 
-// 
-// onClick={onToggle}
-// 
-
-// 
