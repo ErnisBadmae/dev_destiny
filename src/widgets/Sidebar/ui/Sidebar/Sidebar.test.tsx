@@ -15,9 +15,9 @@ describe ('Sidebar', () => {
     test('toggle', () => {
         componentRender(<Sidebar/>)
         const toggleBtn = screen.getByTestId("sidebar-toggle")
-        expect(screen.getByTestId("custom-element")).toBeInTheDocument()
+        expect(screen.getByTestId("sidebar")).toBeInTheDocument()
         fireEvent.click(toggleBtn)
-        expect(screen.getByTestId("custom-element")).toHaveClass("collapsed")
+        expect(screen.getByTestId("sidebar")).toHaveClass("collapsed")
     })
 
 })
