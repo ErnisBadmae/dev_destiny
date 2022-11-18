@@ -1,3 +1,4 @@
+/* stylelint-disable CssSyntaxError */
 
 :root {
     --font-family-main: Consolas, 'Times New Roman', Serif;
@@ -15,4 +16,6 @@
     --sidebar-width-collapsed:
         80px
         --navbar-height:50px;
+    --modal-z-index: 10;
+    --overlay-color: rgba(0 0 0 / 60%);
 }

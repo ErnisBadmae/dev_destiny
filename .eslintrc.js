@@ -1,6 +1,6 @@
 module.exports = {
     parser: "@typescript-eslint/parser",
-    // задаем парсер для eslint что бы знал что делать с ts файлами, запускай еще раз
+    // задаем парсер для eslint что бы знал что делать с ts файлами
     env: {
         browser: true,
         es2021: true,
@@ -15,7 +15,11 @@ module.exports = {
         ecmaVersion: "latest",
         sourceType: "module"
     },
-    plugins: ["react", "i18next"],
+    plugins: [
+        "react", 
+        "i18next",
+        "react-hooks"
+    ],
     rules: {
         'react/jsx-props-no-spreading': 'off',
         'react/jsx-indent': [2, 4],
@@ -43,7 +47,11 @@ module.exports = {
         'max-len': ['error', {
             ignoreComments: true,
             code: 100
-        }]
+        }],
+        'jsx-a11y/no-static-element-interactions':'off',
+        'jsx-a11y/click-events-have-key-events':'off',
+        "react-hooks/rules-of-hooks": "error", // Checks rules of Hooks
+        "react-hooks/exhaustive-deps": "error" // Checks effect dependencies
     },
     globals: {
         '__IS_DEV__': true
