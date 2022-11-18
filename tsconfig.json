@@ -42,6 +42,6 @@
     "include": [
         "./config/jest/setupTests.ts",
         "./src/**/*.tsx",
-        "global.d.ts"
+        "src/app/types/global.d.ts"
     ]
 }
