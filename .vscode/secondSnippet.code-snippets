@@ -1,0 +1,26 @@
+{
+	"Create custom react function component": 
+	{
+		"scope": "typescript, typescriptreact",
+		"prefix": "crft",
+		"body": 
+		[
+			"import { DeepPartial } from '@reduxjs/toolkit';",
+			"import { StateSchema } from 'app/providers/StoreProvider';",
+			"import { ${TM_FILENAME_BASE} } from './${TM_FILENAME_BASE}';",
+			"",
+
+			"describe('${TM_FILENAME_BASE}', ()=>{",
+			" test('should return counter value',()=>{",
+			"   const state: DeepPartial<StateSchema>={",
+			"     counter: {",
+			"       value:10",
+			"       }",
+			"    }",
+			"expect(${TM_FILENAME_BASE}(state as StateSchema)).toEqual({value:10})",
+			" })",
+			"})",
+		],
+		"description": "Создать React-компонент по умолчанию. Импортируется scss-модуль и функция для работы с классами classnames."
+	}
+}
