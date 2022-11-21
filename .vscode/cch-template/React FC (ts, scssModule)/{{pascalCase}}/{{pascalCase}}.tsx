@@ -1,7 +1,15 @@
-import { FC } from 'react';
-import { {{pascalCase}}Props } from '.';
-import styles from './{{pascalCase}}.module.scss';
+import {classNames} from 'shared/lib/className/className';
+import cls from './{{pascalCase}}.module.scss';
 
-export const {{pascalCase}}: FC<{{pascalCase}}Props> = (props) => {
-  return <div className={styles.wrapper} {...props}></div>;
-};
+
+interface {{pascalCase}}Props {
+ className?: string;
+}
+
+export const {{pascalCase}}=({className}:{{pascalCase}}Props)=>  {
+
+ return (
+        <div className={classNames(cls.{{pascalCase}}, {}, [className])}>
+        </div>
+    );
+}
