@@ -15,9 +15,19 @@ export const LoginForm=({className}:LoginFormProps)=>  {
 
     return (
         <div className={classNames(cls.LoginForm, {}, [className])}>
-            <Input type='text' className={cls.input}/>
-            <Input type='text' className={cls.input}/>
-            <Button className={cls.loginBtn}>
+            <Input 
+                autofocus
+                type='text' 
+                className={cls.input}
+                placeholder={t('Введите логин')}
+            />
+            <Input 
+                type='text' 
+                className={cls.input}
+                placeholder={t('Введите пароль')}
+            />
+            <Button 
+                className={cls.loginBtn}>
                 {t('Войти')}
             </Button>
         </div>
