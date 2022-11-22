@@ -18,6 +18,7 @@ export const Input= memo((props:InputProps)=>  {
         value,
         onChange,
         type="text",
+        placeholder,
         ...otherProps
     } = props
 
@@ -27,14 +28,26 @@ export const Input= memo((props:InputProps)=>  {
  
     return (
         <div 
-            className={classNames(cls.Input, {}, [className])}
+            className={classNames(cls.InputWrapper, {}, [className])}
         >
-            <input 
-                type={type}
-                value={value}
-                onChange={onChangeHandler}
+           
+            {placeholder && (
+                <div className={cls.placeholder}>
+                    {`${placeholder}>`}
+                </div>
+            )}
+             
+            <div className={cls.caretWrapper}>
 
-            />
+         
+                <input 
+                    type={type}
+                    value={value}
+                    onChange={onChangeHandler}
+                    className={cls.input}
+                />
+                <span className={cls.caret}/>
+            </div>
         </div>
     );
 })

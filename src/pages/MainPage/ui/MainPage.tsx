@@ -20,6 +20,7 @@ function MainPage() {
             {t("Главная страница")}
             {/* <Counter/> */}
             <Input 
+                placeholder='Введите текст'
                 onChange={onChange}
                 value={value}
             />
