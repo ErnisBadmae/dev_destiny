@@ -20,7 +20,8 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement>{
  className?: string;
  theme?: ThemeButton;
  square?: boolean;
- size?: ButtonSize
+ size?: ButtonSize;
+ disabled?: boolean
 }
 
 
@@ -33,13 +34,15 @@ export const Button:FC<ButtonProps> = (props) =>  {
         theme,
         square,
         size = ButtonSize.M,
+        disabled,
         ...otherProps
     } = props
 
     const mods: Record<string, boolean> =  {
         [cls[theme]]: true,
         [cls.square]: square,
-        [cls[size]]:true
+        [cls[size]]:true,
+        [cls.disabled]:disabled
     }
 
     return (
@@ -47,6 +50,7 @@ export const Button:FC<ButtonProps> = (props) =>  {
             type="button" 
             className={classNames(cls.Button,
                 mods , [className])}
+            disabled={disabled}
             /* eslint-disable react/jsx-props-no-spreading */
             {...otherProps}
         >
