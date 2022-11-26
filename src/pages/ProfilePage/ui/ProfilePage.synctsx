@@ -1,0 +1,13 @@
+import { DeepPartial } from '@reduxjs/toolkit';
+import { pascalCase } from '../ProfilePage';
+import {StateSchema} from '../../../../../src/app/providers/StoreProvider/config/StateSchema'
+
+describe(`$ProfilePage`, ()=>{
+ test('should return counter value',()=>{
+   const state: DeepPartial<StateSchema>={
+     counter: {
+       value:10
+       }
+    }
+ }
+}

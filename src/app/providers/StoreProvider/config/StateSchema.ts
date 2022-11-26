@@ -1,3 +1,4 @@
+import { ProfileSchema } from './../../../../entities/Profile/model/types/profile';
 import { LoginSchema } from 'features/AuthByUsername';
 import { UserSchema } from 'entities/User';
 import { CounterSchema } from 'entities/Counter';
@@ -10,7 +11,8 @@ export interface StateSchema {
     user: UserSchema;
 
     //async reducers
-    loginForm?: LoginSchema
+    loginForm?: LoginSchema;
+    profile?: ProfileSchema 
 }
 
 export type StateSchemaKey = keyof StateSchema

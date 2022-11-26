@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+import { memo } from 'react';
 import {classNames} from 'shared/lib/className/className';
 import cls from './Text.module.scss';
 
@@ -13,7 +15,7 @@ interface TextProps {
     theme?: TextTheme
 }
 
-export const Text=(props:TextProps)=>  {
+export const Text=memo((props:TextProps)=>  {
     const {
         className, 
         text, 
@@ -28,4 +30,4 @@ export const Text=(props:TextProps)=>  {
 
         </div>
     );
-}
+})

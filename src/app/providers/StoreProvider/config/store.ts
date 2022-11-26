@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux';
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 import { StateSchema } from './StateSchema';
 import { configureStore, DeepPartial, ReducersMapObject} from '@reduxjs/toolkit'
@@ -30,3 +31,5 @@ export function createReduxStore(
     return store
 }
 
+
+export type AppDispatch = ReturnType<typeof createReduxStore>['dispatch']

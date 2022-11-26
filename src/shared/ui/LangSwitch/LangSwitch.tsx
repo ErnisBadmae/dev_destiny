@@ -1,3 +1,5 @@
+/* eslint-disable react/display-name */
+import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import {classNames} from 'shared/lib/className/className';
 import { Button, ThemeButton } from '../Buttons/Button';
@@ -10,7 +12,7 @@ interface LangSwitchProps {
  short?: boolean
 }
 
-export const LangSwitch=({className, short}:LangSwitchProps)=>  {
+export const LangSwitch=memo(({className, short}:LangSwitchProps)=>  {
     
     const { t, i18n } = useTranslation();
     
@@ -27,4 +29,4 @@ export const LangSwitch=({className, short}:LangSwitchProps)=>  {
             {t(short ? "Короткий язык":"Язык")}
         </Button>
     );
-}
+})

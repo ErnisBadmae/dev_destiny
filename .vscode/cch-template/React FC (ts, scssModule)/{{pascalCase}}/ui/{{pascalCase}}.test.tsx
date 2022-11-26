@@ -1,6 +1,6 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { pascalCase } from './{{pascalCase}}';
-import {StateSchema} from '../../../../src/app/providers/StoreProvider/config/StateSchema'
+import { pascalCase } from '../{{pascalCase}}';
+import {StateSchema} from '../../../../../src/app/providers/StoreProvider/config/StateSchema'
 
 describe(`${{pascalCase}}`, ()=>{
  test('should return counter value',()=>{
