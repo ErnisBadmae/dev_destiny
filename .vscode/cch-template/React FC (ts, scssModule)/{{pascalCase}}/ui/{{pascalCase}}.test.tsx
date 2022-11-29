@@ -1,4 +1,3 @@
-import { DeepPartial } from '@reduxjs/toolkit';
 import { pascalCase } from '../{{pascalCase}}';
 import {StateSchema} from '../../../../../src/app/providers/StoreProvider/config/StateSchema'
 

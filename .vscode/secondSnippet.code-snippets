@@ -5,7 +5,7 @@
 		"prefix": "crft",
 		"body": 
 		[
-			"import { DeepPartial } from '@reduxjs/toolkit';",
+			
 			"import { StateSchema } from 'app/providers/StoreProvider';",
 			"import { ${TM_FILENAME_BASE} } from './${TM_FILENAME_BASE}';",
 			"",

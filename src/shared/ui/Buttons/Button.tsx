@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
 
 import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
-import {classNames} from 'shared/lib/className/className';
+import {classNames, Mods} from 'shared/lib/className/className';
 import cls from './Button.module.scss';
 
 
@@ -34,14 +34,14 @@ export const Button = memo<ButtonProps>((props: ButtonProps) =>  {
     const {
         className,
         children,
-        theme,
+        theme = ThemeButton.OUTLINE,
         square,
         size = ButtonSize.M,
         disabled,
         ...otherProps
     } = props
 
-    const mods: Record<string, boolean> =  {
+    const mods: Mods   =  {
         [cls[theme]]: true,
         [cls.square]: square,
         [cls[size]]:true,
