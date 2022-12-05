@@ -1,7 +1,10 @@
-import { Profile } from './../../types/profile';
+/* eslint-disable @typescript-eslint/ban-ts-comment */
+import { validateProfileData } from './../validateProfileData/validateProfileData';
+import { Profile, ValidateProfileError } from './../../types/profile';
 import { createAsyncThunk } from "@reduxjs/toolkit";
 import { ThunkConfig } from "app/providers/StoreProvider"; 
 import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
+
 
 export const updateProfileData = createAsyncThunk
     <Profile, void, ThunkConfig<string>>(
@@ -15,6 +18,12 @@ export const updateProfileData = createAsyncThunk
             }  = thunkApi
 
             const formData = getProfileForm(getState())
+            const errors = validateProfileData(formData)
+
+            if(errors.length ) {
+                //@ts-ignore
+                return rejectWithValue(errors)
+            }
 
             try {
                 const response = await extra.api.put<Profile>
@@ -24,7 +33,8 @@ export const updateProfileData = createAsyncThunk
             
             } catch (error) {
                 console.log(error)
-                return rejectWithValue('error')
+                //@ts-ignore
+                return rejectWithValue([ValidateProfileError.NO_DATA])
             }
         }
     )

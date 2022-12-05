@@ -5,6 +5,7 @@ import {
     getProfileForm, 
     getProfileLoading, 
     getProfileReadonly, 
+    getProfileValidateErrors, 
     profileActions, 
     ProfileCard, 
     profileReducer 
@@ -21,6 +22,7 @@ import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 import { Currency } from 'entities/Currency';
 import { Country } from 'entities/Country';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 const reducers: ReducerList = {
     profile: profileReducer
@@ -39,6 +41,9 @@ const ProfilePage=({className }:ProfilePageProps)=>  {
     const isLoading = useSelector(getProfileLoading)
     const readonly = useSelector(getProfileReadonly)
     const formData = useSelector(getProfileForm)
+    const validateError = useSelector(getProfileValidateErrors)
+
+    console.log(validateError, 'validateError')
 
 
     useEffect(() => {
@@ -88,6 +93,12 @@ const ProfilePage=({className }:ProfilePageProps)=>  {
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount>
             <div className={classNames('', {}, [className])}>
                 <ProfilePageHeader/>
+                {validateError?.length && validateError.map((error) => {
+                    <Text 
+                        theme={TextTheme.ERROR} 
+                        text={t('errorrrr')} 
+                    />
+                })}
                 <ProfileCard 
                     data={formData}
                     isLoading={isLoading}
@@ -100,6 +111,7 @@ const ProfilePage=({className }:ProfilePageProps)=>  {
                     onChangeUsername={onChangeUsername}
                     onChangeAvatar={onChangeAvatar}
                     onChangeCurrency={onChangeCurrency}
+                    onChangeCountry={onChangeCountry}
                 />
             </div>
         </DynamicModuleLoader>

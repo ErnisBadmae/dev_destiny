@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { updateProfileData } from './../services/updateProfileData/updateProfileData';
 import { Profile, ProfileSchema } from './../types/profile';
 import { createSlice, PayloadAction} from '@reduxjs/toolkit'
@@ -20,6 +21,7 @@ export const profileSlice = createSlice({
         cancelEdit: (state ) => {
             state.readonly = true
             state.form =state.data
+            state.validateError = undefined
         },
         updateProfile: (state, action: PayloadAction<Profile>) => {
             state.form = {
@@ -51,6 +53,7 @@ export const profileSlice = createSlice({
             .addCase(updateProfileData.pending, (state) => {
                 state.isError = undefined
                 state.isLoading = true
+                state.validateError = undefined
             })
             .addCase(updateProfileData.fulfilled, (
                 state, 
@@ -60,10 +63,14 @@ export const profileSlice = createSlice({
                 state.data = action.payload
                 state.form = action.payload
                 state.readonly = true 
+                state.validateError = undefined
             })
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false
-                state.isError = action.payload
+                // state.isError = action.payload
+                //@ts-ignore
+                state.validateError = action.payload
+
             })
 
     }
