@@ -4,8 +4,3 @@ export enum Currency {
     "USD" ="USD"
 }
 
-export enum Country {
-    RUSSIA = "Russia",
-    EU  = "Europe",
-    USA ="Usa"
-}

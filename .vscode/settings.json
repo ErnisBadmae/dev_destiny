@@ -11,5 +11,6 @@
     "css",
     "scss"
 ],
-    "react-i18n.i18nPaths": "public/locales,src/shared/config/i18n"
+    "react-i18n.i18nPaths": "public/locales,src/shared/config/i18n",
+    "i18n-ally.keystyle": "nested"
 }

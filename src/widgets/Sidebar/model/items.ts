@@ -4,14 +4,15 @@ import MenuList from 'shared/assets/icons/list.svg'
 import ProfileIcon from 'shared/assets/icons/Profile.svg'
 
 export interface SidebarItemType {
-    path:string;
+    path:string | undefined;
     text: string;
     icon: React.VFC<React.SVGProps<SVGSVGElement>>
+    authOnly?:boolean 
 }
 
 export const  SidebarItemList: SidebarItemType[] =[
     {
-        path: RoutePath.main,
+        path: RoutePath.main || undefined,
         icon: HomeIcon,
         text:'Главная'
     },
@@ -23,6 +24,7 @@ export const  SidebarItemList: SidebarItemType[] =[
     {
         path: RoutePath.profile,
         icon: ProfileIcon,
-        text:'Профиль'
+        text:'Профиль',
+        authOnly: true
     }
 ]
