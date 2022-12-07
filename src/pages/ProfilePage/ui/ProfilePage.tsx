@@ -8,7 +8,8 @@ import {
     getProfileValidateErrors, 
     profileActions, 
     ProfileCard, 
-    profileReducer 
+    profileReducer, 
+    ValidateProfileError
 } from 'entities/Profile';
 import { 
     DynamicModuleLoader, 
@@ -34,7 +35,7 @@ interface ProfilePageProps {
 }
 
 const ProfilePage=({className }:ProfilePageProps)=>  {
-    const {t} =useTranslation()
+    const {t} =useTranslation('profile')
     const dispatch = useAppDispatch()
     // const data = useSelector(getProfileData)
     const isError = useSelector(getProfileError)
@@ -45,6 +46,14 @@ const ProfilePage=({className }:ProfilePageProps)=>  {
 
     console.log(validateError, 'validateError')
 
+    const validateErrorTranslates = {
+        [ValidateProfileError.SERVER_ERROR]: t('Ошибка сервера'),
+        [ValidateProfileError.INCORRECT_AGE]: t('Ошибка поля возрас'),
+        [ValidateProfileError.INCORRECT_COUNTRY]: t('ошибка поля страна'),
+        [ValidateProfileError.INCORRECT_USER_DATA]: t('ошибка поля юзердата'),
+        [ValidateProfileError.NO_DATA]: t('нет данных'),
+
+    }
 
     useEffect(() => {
         dispatch(fetchProfileData( ))
@@ -95,8 +104,9 @@ const ProfilePage=({className }:ProfilePageProps)=>  {
                 <ProfilePageHeader/>
                 {validateError?.length && validateError.map((error) => {
                     <Text 
+                        key={error}
                         theme={TextTheme.ERROR} 
-                        text={t(`${error}`)} 
+                        text={validateErrorTranslates[error]} 
                     />
                 })}
                 <ProfileCard 
