@@ -7,7 +7,7 @@ import { getProfileForm } from '../../selectors/getProfileForm/getProfileForm';
 
 
 export const updateProfileData = createAsyncThunk
-    <Profile, void, ThunkConfig<string>>(
+    <Profile, void, ThunkConfig<string[]>>(
         'profile/updateProfileData',
         async (_, thunkApi) => {
 
@@ -21,7 +21,7 @@ export const updateProfileData = createAsyncThunk
             const errors = validateProfileData(formData)
 
             if(errors.length ) {
-                //@ts-ignore
+              
                 return rejectWithValue(errors)
             }
 
@@ -33,7 +33,7 @@ export const updateProfileData = createAsyncThunk
             
             } catch (error) {
                 console.log(error)
-                //@ts-ignore
+              
                 return rejectWithValue([ValidateProfileError.NO_DATA])
             }
         }

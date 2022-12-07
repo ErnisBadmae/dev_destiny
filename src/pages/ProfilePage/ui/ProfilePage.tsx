@@ -1,6 +1,6 @@
 import { 
     fetchProfileData, 
-    getProfileData, 
+    // getProfileData, 
     getProfileError, 
     getProfileForm, 
     getProfileLoading, 
@@ -36,7 +36,7 @@ interface ProfilePageProps {
 const ProfilePage=({className }:ProfilePageProps)=>  {
     const {t} =useTranslation()
     const dispatch = useAppDispatch()
-    const data = useSelector(getProfileData)
+    // const data = useSelector(getProfileData)
     const isError = useSelector(getProfileError)
     const isLoading = useSelector(getProfileLoading)
     const readonly = useSelector(getProfileReadonly)
@@ -96,7 +96,7 @@ const ProfilePage=({className }:ProfilePageProps)=>  {
                 {validateError?.length && validateError.map((error) => {
                     <Text 
                         theme={TextTheme.ERROR} 
-                        text={t('errorrrr')} 
+                        text={t(`${error}`)} 
                     />
                 })}
                 <ProfileCard 
