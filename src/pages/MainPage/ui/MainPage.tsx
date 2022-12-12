@@ -15,7 +15,7 @@ function MainPage() {
     }
 
     return (
-        <div>
+        <div style={{color:'red'}}>
             {/* <BugButton/> */}
             {t("Главная страница")}
             {/* <Counter/> */}
