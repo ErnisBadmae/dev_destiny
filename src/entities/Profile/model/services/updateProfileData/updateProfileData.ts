@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { validateProfileData } from './../validateProfileData/validateProfileData';
 import { Profile, ValidateProfileError } from './../../types/profile';
 import { createAsyncThunk } from "@reduxjs/toolkit";
@@ -20,21 +19,22 @@ export const updateProfileData = createAsyncThunk
             const formData = getProfileForm(getState())
             const errors = validateProfileData(formData)
 
-            if(errors.length ) {
-              
+            if(errors.length ) {  
                 return rejectWithValue(errors)
             }
 
             try {
                 const response = await extra.api.put<Profile>
                 ('/profile', formData) 
-
+                if(!response.data) {
+                    throw new Error()
+                }
                 return response.data;
             
             } catch (error) {
                 console.log(error)
               
-                return rejectWithValue([ValidateProfileError.NO_DATA])
+                return rejectWithValue([ValidateProfileError.SERVER_ERROR])
             }
         }
     )
