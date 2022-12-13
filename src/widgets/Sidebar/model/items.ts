@@ -2,6 +2,8 @@ import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import HomeIcon from 'shared/assets/icons/home.svg'
 import MenuList from 'shared/assets/icons/list.svg'
 import ProfileIcon from 'shared/assets/icons/Profile.svg'
+import ArticleIcon from 'shared/assets/icons/article-20-20.svg'
+
 
 export interface SidebarItemType {
     path:string | undefined;
@@ -26,5 +28,11 @@ export const  SidebarItemList: SidebarItemType[] =[
         icon: ProfileIcon,
         text:'Профиль',
         authOnly: true
-    }
+    },
+    {
+        path: RoutePath.articles,
+        icon: ArticleIcon,
+        text:'Статьи',
+        authOnly: true
+    },
 ]
