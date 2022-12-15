@@ -1,4 +1,4 @@
 export {
-    ArticleDetailPageAsync as ArticleDetailPage
-} from './ui/ArticleDetailPage/ArticleDetailPage.async'
+    ArticleDetailsPageAsync as ArticleDetailPage
+} from './ui/ArticleDetailsPage.async'
 

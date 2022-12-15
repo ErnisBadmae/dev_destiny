@@ -1,7 +1,7 @@
-import  ArticleDetailPage  from './ArticleDetailPage';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent';
 import {StateSchema} from '../../../../../src/app/providers/StoreProvider/config/StateSchema'
 
-describe(`$ArticleDetailPage`, ()=>{
+describe(`$ArticleCodeBlockComponent`, ()=>{
     test('should return counter value',()=>{
         const state: DeepPartial<StateSchema>={
             counter: {
