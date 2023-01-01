@@ -18,8 +18,11 @@ import {
 } from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import cls from './ArticleDetails.module.scss';
-import { AlignText, Text } from 'shared/ui/Text/Text';
+import {  AlignText, Text } from 'shared/ui/Text/Text';
 import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
+import { Avatar } from 'shared/ui/Avatar';
+import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
+import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
 
 
 interface ArticleDetailsProps {
@@ -37,24 +40,25 @@ export const ArticleDetails=memo((props:ArticleDetailsProps)=>  {
         id
     } = props
     
-    const {t} = useTranslation('article')
-    const data = useSelector(getArticleDetailData)
-    const isError = useSelector(getArticleDetailIsError)
-    // const isLoading = useSelector(getArticleDetailIsLoading)
-    const isLoading = true
-
     const dispatch = useAppDispatch()
 
+    const {t} = useTranslation()
+    const isError = useSelector(getArticleDetailIsError)
+    const isLoading = useSelector(getArticleDetailIsLoading)
+    const article = useSelector(getArticleDetailData)
+
+
+
     useEffect(() => {
-        dispatch(fetchArticleById(id))
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchArticleById(id));
+        }
     },[dispatch, id])
 
     let content 
     if(isLoading) {
         content = (
-            <div>
-
-            
+            <>
                 <Skeleton 
                     className={cls.avatar}
                     width={200}
@@ -80,19 +84,40 @@ export const ArticleDetails=memo((props:ArticleDetailsProps)=>  {
           
     
                 />
-            </div>
+            </>
         )
     } else if(isError) {
         content = (
-            <Text 
+            <Text
                 align={AlignText.CENTER}
-                title={t('Произошла ошибка при загрузке статьи')}
+                title={t('Произошла ошибка при загрузке статьи.')}
             />
-
-        )
+        );
     } else {
         content = (
-            <div>Article Detail...</div>
+            <>
+                <Avatar 
+                    size={200} src={article?.img}
+                    className={cls.avatar}
+                />
+                <Text
+                    title={article?.title}
+                    text={article?.subtitle}
+                />
+                <div>
+                    <EyeIcon/>
+                    <Text 
+                        text={String(article?.views)}
+                    />
+                </div>
+                <div>
+                    <CalendarIcon/>
+                    <Text 
+                        text={article?.createdAt}
+                    />
+                </div>
+            </>
+
         )
     }
 
