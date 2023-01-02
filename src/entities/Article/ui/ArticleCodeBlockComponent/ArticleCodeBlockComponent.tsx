@@ -1,17 +1,23 @@
-/* eslint-disable i18next/no-literal-string */
+import { ArticleCodeBlock } from '../../model/types/article';
+import { memo } from 'react';
 import {classNames} from 'shared/lib/className/className';
+import { Code } from 'shared/ui/Code/Code';
 import cls from './ArticleCodeBlockComponent.module.scss';
 
 
 interface ArticleCodeBlockComponentProps {
  className?: string;
+ block: ArticleCodeBlock
 }
 
-export const ArticleCodeBlockComponent=({className}:ArticleCodeBlockComponentProps)=>  {
-
+export const ArticleCodeBlockComponent=memo((props:ArticleCodeBlockComponentProps)=>  {
+    const {
+        className,
+        block,
+    } = props
     return (
         <div className={classNames(cls.ArticleCodeBlockComponent, {}, [className])}>
-            ArticleCodeBlockComponent
+            <Code text={block.code}/>
         </div>
     );
-}
+})

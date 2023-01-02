@@ -1,5 +1,4 @@
 /* eslint-disable i18next/no-literal-string */
-/* eslint-disable react/display-name */
 import { 
     getArticleDetailData, 
     getArticleDetailIsError,
@@ -9,7 +8,7 @@ import {
     fetchArticleById 
 } from 'entities/Article/model/services/fetchArticleById/fetchArticleById';
 import { articleDetailsReducer } from 'entities/Article/model/slice/articleDetailSlice';
-import { memo, useEffect } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import {classNames} from 'shared/lib/className/className';
@@ -23,6 +22,12 @@ import { Skeleton } from 'shared/ui/Skeleton/Skeleton';
 import { Avatar } from 'shared/ui/Avatar';
 import EyeIcon from 'shared/assets/icons/eye-20-20.svg'
 import CalendarIcon from 'shared/assets/icons/calendar-20-20.svg'
+import { Icon } from 'shared/ui/Icon/Icon';
+import { ArticleBlock, ArticleBlockType } from '../../model/types/article';
+import { ArticleCodeBlockComponent } from '../ArticleCodeBlockComponent';
+import { 
+    ArticleImageBlockComponent } from '../ArticleImageBlockComponent/ArticleImageBlockComponent';
+import { ArticleTextBlockComponent } from '../ArticleTextBlockComponent/ArticleTextBlockComponent';
 
 
 interface ArticleDetailsProps {
@@ -47,7 +52,21 @@ export const ArticleDetails=memo((props:ArticleDetailsProps)=>  {
     const isLoading = useSelector(getArticleDetailIsLoading)
     const article = useSelector(getArticleDetailData)
 
+    const renderBlock = useCallback((block: ArticleBlock) => {
+        switch (block.type) {
+        case ArticleBlockType.CODE:
+            return <ArticleCodeBlockComponent key={block.id} className={cls.block} block={block}/>
 
+        case ArticleBlockType.IMAGE:
+            return <ArticleImageBlockComponent key={block.id} className={cls.block} block={block}/>
+
+        case ArticleBlockType.TEXT:
+            return <ArticleTextBlockComponent key={block.id} className={cls.block} block={block}/>
+
+        default:
+            return null
+        }
+    },[])
 
     useEffect(() => {
         if (__PROJECT__ !== 'storybook') {
@@ -90,7 +109,7 @@ export const ArticleDetails=memo((props:ArticleDetailsProps)=>  {
         content = (
             <Text
                 align={AlignText.CENTER}
-                title={t('Произошла ошибка при загрузке статьи.')}
+                title='Произошла ошибка при загрузке статьи.'
             />
         );
     } else {
@@ -101,21 +120,23 @@ export const ArticleDetails=memo((props:ArticleDetailsProps)=>  {
                     className={cls.avatar}
                 />
                 <Text
+                    className={cls.title}
                     title={article?.title}
                     text={article?.subtitle}
                 />
-                <div>
-                    <EyeIcon/>
+                <div className={cls.articleInfo}>
+                    <Icon className={cls.icon} Svg={EyeIcon}/>
                     <Text 
                         text={String(article?.views)}
                     />
                 </div>
-                <div>
-                    <CalendarIcon/>
+                <div className={cls.articleInfo}>
+                    <Icon className={cls.icon} Svg={CalendarIcon}/>
                     <Text 
                         text={article?.createdAt}
                     />
                 </div>
+                {article?.blocks.map(renderBlock)}
             </>
 
         )
@@ -123,7 +144,6 @@ export const ArticleDetails=memo((props:ArticleDetailsProps)=>  {
 
     return (
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={true}>
-
             <div className={classNames(cls.ArticleDetails, {}, [className])}>
                 {content}
             </div>
