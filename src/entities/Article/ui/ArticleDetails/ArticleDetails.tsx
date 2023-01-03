@@ -115,10 +115,12 @@ export const ArticleDetails=memo((props:ArticleDetailsProps)=>  {
     } else {
         content = (
             <>
-                <Avatar 
-                    size={200} src={article?.img}
-                    className={cls.avatar}
-                />
+                <div className={cls.avatarWrapper}>
+                    <Avatar 
+                        size={200} src={article?.img}
+                        className={cls.avatar}
+                    />
+                </div>
                 <Text
                     className={cls.title}
                     title={article?.title}

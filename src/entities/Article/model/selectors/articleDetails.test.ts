@@ -40,8 +40,6 @@ describe('getArticleDetailData.test', ()=>{
         expect(getArticleDetailIsLoading(state as StateSchema)).toEqual(false )
     })
 
-
-
     test('should return isError',()=>{
         const state: DeepPartial<StateSchema>={
             articleDetails:{
@@ -53,6 +51,6 @@ describe('getArticleDetailData.test', ()=>{
 
     test('should work with empty state isError',()=>{
         const state: DeepPartial<StateSchema>={}
-        expect(getArticleDetailIsError(state as StateSchema)).toEqual('')
+        expect(getArticleDetailIsError(state as StateSchema)).toEqual(undefined)
     })
 })

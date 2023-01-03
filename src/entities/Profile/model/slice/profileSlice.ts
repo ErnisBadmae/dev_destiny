@@ -51,7 +51,6 @@ export const profileSlice = createSlice({
             })
 
             .addCase(updateProfileData.pending, (state) => {
-                state.isError = undefined
                 state.isLoading = true
                 state.validateError = undefined
             })
@@ -67,8 +66,6 @@ export const profileSlice = createSlice({
             })
             .addCase(updateProfileData.rejected, (state, action) => {
                 state.isLoading = false
-                // state.isError = action.payload
-                //@ts-ignore
                 state.validateError = action.payload
 
             })

@@ -1,4 +1,4 @@
-import { USER_LOCALSTORAGE_KEY } from './../../../../shared/const/localStorage';
+import { USER_LOCALSTORAGE_KEY } from 'shared/const/localStorage';
 import { User, UserSchema } from './../types/user';
 import { createSlice, PayloadAction} from '@reduxjs/toolkit'
 
@@ -27,10 +27,5 @@ export const userSlice = createSlice({
     }
 })
 
-export const { 
-    actions: userActions
-} = userSlice
-
-export const {
-    reducer: userReducer
-} =  userSlice
+export const { actions: userActions } = userSlice;
+export const { reducer: userReducer } = userSlice;

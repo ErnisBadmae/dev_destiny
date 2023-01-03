@@ -6,4 +6,4 @@ export const getArticleDetailIsLoading = (state: StateSchema) =>
     state.articleDetails?.isLoading || false
 
 export const getArticleDetailIsError = (state: StateSchema) => 
-    state.articleDetails?.isError || ''
+    state.articleDetails?.isError 
