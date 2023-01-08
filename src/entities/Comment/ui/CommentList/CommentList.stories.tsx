@@ -1,12 +1,9 @@
-/* eslint-disable react/jsx-props-no-spreading */
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
 import {CommentList} from './CommentList';
 
 
 export default {
-    title: 'pages/CommentList',
+    title: 'entities/Comment/CommentList',
     component: CommentList,
   
     argTypes: {
@@ -18,9 +15,25 @@ const Template: ComponentStory<typeof CommentList> = (args) =>
     <CommentList {...args} />;
 
 export const Normal = Template.bind({});
-Normal.args = {};
+Normal.args = {
+    comments: [
+        {
+            id:'1',
+            text:'test text from storybook',
+            user: {id:'1', username:'Stroybook user'}
+        },
+        {
+            id:'2',
+            text:'test text from storybook2',
+            user: {id:'2', username:'Stroybook user2'}
+        }
+    ]
+};
 
-export const Dark = Template.bind({});
-Dark.args = {};
+export const Loading = Template.bind({});
+Loading.args = {
+    comments: [],
+    isLoading:true
+};
 
-Dark.decorators = [ThemeDecorator(Theme.DARK)]
+

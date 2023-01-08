@@ -13,7 +13,8 @@ const data =  {
     first: 'Erni',
     last: 'Badmaev',
     city:'spb',
-    currency:Currency.RUB,  
+    currency:Currency.RUB, 
+    id:'1' 
 }       
 
 describe('updateProfileData', ()=>{
@@ -26,7 +27,7 @@ describe('updateProfileData', ()=>{
         })
         thunk.api.put.mockReturnValue(Promise.resolve({ data}))
 
-        const result = await thunk.callThunk( )
+        const result = await thunk.callThunk()
 
         expect(thunk.api.put).toHaveBeenCalled()
         expect(result.meta.requestStatus).toBe('fulfilled')

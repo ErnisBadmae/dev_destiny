@@ -18,3 +18,7 @@ export {
 export {
     fetchArticleById
 } from './model/services/fetchArticleById/fetchArticleById'
+
+export {
+    getArticleDetailData
+} from './model/selectors/articleDetails'
