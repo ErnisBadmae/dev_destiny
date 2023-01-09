@@ -1,6 +1,4 @@
-/* eslint-disable react/display-name */
-
-import { ButtonHTMLAttributes, FC, memo, ReactNode } from 'react';
+import { ButtonHTMLAttributes, memo, ReactNode } from 'react';
 import {classNames, Mods} from 'shared/lib/className/className';
 import cls from './Button.module.scss';
 
@@ -55,7 +53,6 @@ export const Button = memo<ButtonProps>((props: ButtonProps) =>  {
             className={classNames(cls.Button,
                 mods , [className])}
             disabled={disabled}
-            /* eslint-disable react/jsx-props-no-spreading */
             {...otherProps}
         >
             {children}

@@ -2,12 +2,10 @@ export {
     ArticleDetails
 } from './ui/ArticleDetails/ArticleDetails'
 
-export type {
-    Article
-} from './model/types/article'
+export type { Article, ArticleView} from './model/types/article'
 
 export type {
-    ArticleDetatailSchema
+    ArticleDetatailSchema,
 } from './model/types/articleDetailSchema'
 
 export {
@@ -22,3 +20,5 @@ export {
 export {
     getArticleDetailData
 } from './model/selectors/articleDetails'
+
+export { ArticleList} from './ui/ArticleList/ArticleList'
