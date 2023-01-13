@@ -1,6 +1,6 @@
 /* eslint-disable react/display-name */
 import React, { InputHTMLAttributes, memo, useEffect, useRef, useState } from 'react';
-import {classNames, Mods} from 'shared/lib/className/className';
+import { classNames, Mods } from 'shared/lib/className/className';
 import cls from './Input.module.scss';
 
 type HTMLInputProps = Omit<InputHTMLAttributes<HTMLInputElement>, 'value'| 'onChange'| 'readOnly'>

@@ -15,7 +15,7 @@ interface DynamicModuleLoaderProps {
 
 }
 
-type ReducerListEntry = [StateSchemaKey, Reducer]
+// type ReducerListEntry = [StateSchemaKey, Reducer]
 
 export const DynamicModuleLoader: FC <DynamicModuleLoaderProps> =(props) =>  {
     const {

@@ -1,32 +1,32 @@
-import { 
-    fetchProfileData, 
+import { Country } from 'entities/Country';
+import { Currency } from 'entities/Currency';
+import {
+    fetchProfileData,
     // getProfileData, 
-    getProfileError, 
-    getProfileForm, 
-    getProfileLoading, 
-    getProfileReadonly, 
-    getProfileValidateErrors, 
-    profileActions, 
-    ProfileCard, 
-    profileReducer, 
+    getProfileError,
+    getProfileForm,
+    getProfileLoading,
+    getProfileReadonly,
+    getProfileValidateErrors,
+    profileActions,
+    ProfileCard,
+    profileReducer,
     ValidateProfileError
 } from 'entities/Profile';
-import { 
-    DynamicModuleLoader, 
-    ReducerList 
-} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
-import { useCallback, useEffect } from 'react';
+import { useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
-import {classNames} from 'shared/lib/className/className';
-import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
-import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
-import { Currency } from 'entities/Currency';
-import { Country } from 'entities/Country';
-import { Text, TextTheme } from 'shared/ui/Text/Text';
-import { useInitialEffect } from 'shared/lib/hooks/useAppDispatch/useInitialEffect';
 import { useParams } from 'react-router-dom';
+import { classNames } from 'shared/lib/className/className';
+import {
+    DynamicModuleLoader,
+    ReducerList
+} from 'shared/lib/components/DynamicModuleLoader/DynamicModuleLoader';
+import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useInitialEffect } from 'shared/lib/hooks/useAppDispatch/useInitialEffect';
 import { Page } from 'shared/ui/Page/Page';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
+import { ProfilePageHeader } from './ProfilePageHeader/ProfilePageHeader';
 
 const reducers: ReducerList = {
     profile: profileReducer
