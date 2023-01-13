@@ -1,11 +1,10 @@
-import { TestAsyncThunk } from './../../../../../shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { userActions } from 'entities/User';
+import { TestAsyncThunk } from './../../../../../shared/lib/tests/TestAsyncThunk/TestAsyncThunk';
 import { loginByUsername } from './loginByUsername';
-import axios from 'axios'
 
 jest.mock('axios')
 
-const mockedAxios = jest.mocked(axios, true)
+// const mockedAxios = jest.mocked(axios, true)
 
 describe('loginByUsername', ()=>{
     // let dispatch: Dispatch

@@ -12,11 +12,8 @@ import { useAppDispatch } from "shared/lib/hooks/useAppDispatch/useAppDispatch";
 import { useInitialEffect } from "shared/lib/hooks/useAppDispatch/useInitialEffect";
 import { Page } from "shared/ui/Page/Page";
 import {
-    getArticlesPageHasMore,
     getArticlesPageIsError,
-    getArticlesPageIsLoading,
-    getArticlesPageNum,
-    getArticlesPageView
+    getArticlesPageIsLoading, getArticlesPageView
 } from "../../model/selectors/articlesPageSelectors";
 import { fetchArticlesList } from "../../model/services/fetchArticlesList/fetchArticlesList";
 import { articlePageActions, articlePageReducer, getArticles } from "../../model/slice/articlePageSlice";

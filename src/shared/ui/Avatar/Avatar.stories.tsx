@@ -1,9 +1,7 @@
 /* eslint-disable react/jsx-props-no-spreading */
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Theme } from 'app/providers/ThemeProvider';
-import { ThemeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
+import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { Avatar } from './Avatar';
-import ernis from './ernis.jpeg'
+import ernis from './ernis.jpeg';
 
 
 

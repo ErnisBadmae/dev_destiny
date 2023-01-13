@@ -1,7 +1,7 @@
 /* eslint-disable max-len */
-import { ArticleDetatailSchema } from './../types/articleDetailSchema';
-import { articleDetailsReducer,articleDetailsActions, fetchArticleById  } from 'entities/Article';
+import { articleDetailsReducer, fetchArticleById } from 'entities/Article';
 import { Article, ArticleBlockType, ArticleType } from '../types/article';
+import { ArticleDetatailSchema } from './../types/articleDetailSchema';
 
 describe('articleDetailSlice.test', ()=>{
     const data: Article =  {

@@ -1,7 +1,7 @@
 /* eslint-disable react/display-name */
-import { FC, memo, ReactNode } from 'react';
+import { memo, ReactNode } from 'react';
 import { Link, LinkProps } from 'react-router-dom';
-import {classNames} from 'shared/lib/className/className';
+import { classNames } from 'shared/lib/className/className';
 import cls from './AppLink.module.scss';
 
 export enum AppLinkTheme {

@@ -1,9 +1,6 @@
-import axios, { AxiosStatic }  from 'axios';
-import { 
-    loginByUsername
-} from './../../../../features/AuthByUsername/model/services/loginByUsername/loginByUsername';
 import { AsyncThunkAction } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/StoreProvider';
+import axios, { AxiosStatic } from 'axios';
 
 
 type ActionCreatorType
