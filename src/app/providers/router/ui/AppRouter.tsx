@@ -8,10 +8,8 @@ function AppRouter() {
 
     const renderWithRapper = useCallback((route:AppRouteProps) => {
         const element = (
-            <Suspense fallback={<PageLoader/>}>
-                <div className='page-wrapper'>
-                    {route.element}
-                </div>
+            <Suspense fallback={<PageLoader/>}>           
+                {route.element}
             </Suspense>
         )
         return (
@@ -25,20 +23,6 @@ function AppRouter() {
     return (
         <Routes>
             {Object.values(routeConfig).map(renderWithRapper)}
-            {/* {routes.map(({ element, path }) => {
-                return <Route
-                    key={path}
-                    path={path}
-                    element={(
-                        <Suspense fallback={<PageLoader/>}>
-                            <div className='page-wrapper'>
-                                {element}
-                            </div>
-                        </Suspense>
-                    )}
-                />;
-                        
-            })} */}
         </Routes>
     );
 }

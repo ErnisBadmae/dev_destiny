@@ -1,4 +1,3 @@
-/* eslint-disable react/display-name */
 import { getUserAuthData, userActions } from 'entities/User';
 import { LoginModal } from 'features/AuthByUsername';
 import { memo, useCallback, useState } from 'react';
@@ -33,7 +32,7 @@ export const Navbar = memo(({ className }: NavbarProps) => {
 
     if(authData) {
         return ( 
-            <div className={classNames(cls.Navbar, {}, [className])}>
+            <header className={classNames(cls.Navbar, {}, [className])}>
                 <Button 
                     theme={ThemeButton.CLEAR_INVERTED} 
                     className={cls.links}
@@ -44,12 +43,12 @@ export const Navbar = memo(({ className }: NavbarProps) => {
                 <LoginModal 
                     isOpen={isAuthModal} 
                     onClose={onClose}/>
-            </div>
+            </header>
         )
     }
 
     return (
-        <div className={classNames(cls.Navbar, {}, [className])}>
+        <header className={classNames(cls.Navbar, {}, [className])}>
             <Button 
                 theme={ThemeButton.CLEAR_INVERTED} 
                 className={cls.links}
@@ -60,6 +59,6 @@ export const Navbar = memo(({ className }: NavbarProps) => {
             {isAuthModal && <LoginModal 
                 isOpen={isAuthModal} 
                 onClose={onClose}/>}
-        </div>
+        </header>
     );
 });

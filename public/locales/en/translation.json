@@ -8,5 +8,6 @@
     "Войти":"Login",
     "Введите логин": "Your login",
     "Введите пароль":"Your password",
-    "Читать далее":"Read more"
+    "Читать далее":"Read more",
+    "Произошла непредвиденная ошибка": "An unexpected error has occurred"
 }
