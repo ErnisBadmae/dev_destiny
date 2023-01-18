@@ -1,16 +1,15 @@
-import { To, NavigateOptions } from 'react-router-dom';
-import { ProfileSchema } from './../../../../entities/Profile/model/types/profile';
-import { LoginSchema } from 'features/AuthByUsername';
-import { UserSchema } from 'entities/User';
-import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailPage';
-import { CounterSchema } from 'entities/Counter';
-import { 
-    AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject 
+import {
+    AnyAction, CombinedState, EnhancedStore, Reducer, ReducersMapObject
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { ArticleDetatailSchema } from 'entities/Article';
+import { CounterSchema } from 'entities/Counter';
+import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/addComentForm/model/types/addCommentForm';
+import { LoginSchema } from 'features/AuthByUsername';
+import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
+import { ProfileSchema } from './../../../../entities/Profile/model/types/profile';
 
 
 
@@ -28,7 +27,7 @@ export interface StateSchema {
 }
 
 export type StateSchemaKey = keyof StateSchema
-
+export type MountedReducers = OptionalRecord< StateSchemaKey, boolean> 
 
 
 export interface ReducerManager {
@@ -36,6 +35,9 @@ export interface ReducerManager {
     reduce:(state:StateSchema, action: AnyAction)=>CombinedState<StateSchema> ;
     add: (key: StateSchemaKey, reducer:Reducer) => void;
     remove: (key: StateSchemaKey)=> void;
+
+    //true - вмонтирован, иначе удален или демонтирован
+    getMountedReducers: () => MountedReducers;
 }
 
 export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
@@ -44,7 +46,7 @@ export interface ReduxStoreWithManager extends EnhancedStore<StateSchema>{
 
 export interface ThunkExtraArg {
     api: AxiosInstance;
-    navigate?: (to: To, options?: NavigateOptions)=> void,
+
 }
 
 export interface ThunkConfig<T> {

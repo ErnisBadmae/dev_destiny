@@ -11,7 +11,9 @@ i18n
     .use(initReactI18next)
     .init({
         fallbackLng: 'en',
-        debug: __IS_DEV__, 
+        // debug: __IS_DEV__, 
+        debug: false, 
+
         // дефолтный язык
         lng: "ru",
 
