@@ -7,6 +7,7 @@ import { CounterSchema } from 'entities/Counter';
 import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/addComentForm/model/types/addCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
+import { ScrollSaveSchema } from 'features/ScrollSave/model/types/ScrollSaveSchema';
 import { ArticleDetailsCommentSchema } from 'pages/ArticleDetailPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ProfileSchema } from './../../../../entities/Profile/model/types/profile';
@@ -16,7 +17,8 @@ import { ProfileSchema } from './../../../../entities/Profile/model/types/profil
 export interface StateSchema {
     counter: CounterSchema;
     user: UserSchema;
-
+    scrollPosition: ScrollSaveSchema;
+    
     //async reducers
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
