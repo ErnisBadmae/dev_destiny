@@ -42,9 +42,7 @@ export const Select = <T extends string>(props:SelectProps<T>)=>  {
         >
             {currenOpt.content}
         </option>
-    })
-
-    ,[options])
+    }),[options])
 
   
 
