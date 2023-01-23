@@ -1,6 +1,4 @@
-import { ArticleList, ArticleView, ArticleViewSelector } from "entities/Article";
-import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
-import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
+import { ArticleList } from "entities/Article";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
@@ -16,7 +14,10 @@ import {
     getArticlesPageIsError,
     getArticlesPageIsLoading, getArticlesPageView
 } from "../../model/selectors/articlesPageSelectors";
-import { articlePageActions, articlePageReducer, getArticles } from "../../model/slice/articlePageSlice";
+import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPage/fetchNextArticlesPage";
+import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
+import { articlePageReducer, getArticles } from "../../model/slice/articlePageSlice";
+import { ArticlePageFilters } from "../ArticlePageFilters/ArticlePageFilters";
 import cls from "./ArticlesPage.module.scss";
 
 interface ArticlesPageProps {
@@ -40,9 +41,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     const isError = useSelector(getArticlesPageIsError)
     const view = useSelector(getArticlesPageView)
 
-    const onChangeView = useCallback((view:ArticleView) => {
-        dispatch(articlePageActions.setView(view))
-    },[dispatch])
+    
 
     const onLoadNextPart = useCallback(()=> {
         dispatch(fetchNextArticlesPage())
@@ -62,11 +61,9 @@ const ArticlesPage = (props: ArticlesPageProps) => {
                 onScrollEnd={onLoadNextPart}
                 className={classNames(cls.ArticlesPage, {}, [className])}
             >
-                <ArticleViewSelector 
-                    view={view} 
-                    onViewClick={onChangeView}
-                />
+                <ArticlePageFilters/>
                 <ArticleList 
+                    className={cls.list}
                     isLoading={isLoading}
                     view={view}
                     articles={articles} 

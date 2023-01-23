@@ -1,10 +1,10 @@
 import { StateSchema } from 'app/providers/StoreProvider';
 import { scrollSaveActions } from 'features/ScrollSave';
-import { getScroll, getScrollByPath } from 'features/ScrollSave/model/selectors/getScroll';
+import { getScrollByPath } from 'features/ScrollSave/model/selectors/getScroll';
 import { MutableRefObject, ReactNode, UIEvent, useRef } from 'react';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
-import {classNames} from 'shared/lib/className/className';
+import { classNames } from 'shared/lib/className/className';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
 import { useInitialEffect } from 'shared/lib/hooks/useAppDispatch/useInitialEffect';
 import { useInfiniteScroll } from 'shared/lib/hooks/useInfiniteScroll/useInfiniteScroll';
@@ -44,8 +44,6 @@ export const Page=(props:PageProps)=>  {
 
     const onScroll =useThrottle((e:UIEvent<HTMLDivElement>) => {
 
-        console.log('Render')
-
         dispatch(scrollSaveActions.setScrollPosition({
             position: e.currentTarget.scrollTop,
             path: pathname
@@ -59,7 +57,14 @@ export const Page=(props:PageProps)=>  {
             onScroll={onScroll}
         >
             {children}
-            <div ref={triggerRef}></div>
+            { onScrollEnd ? 
+                <div 
+                    className={cls.trigger}
+                    ref={triggerRef}
+                /> 
+                : null
+            }
+           
         </section>
     );
 }
