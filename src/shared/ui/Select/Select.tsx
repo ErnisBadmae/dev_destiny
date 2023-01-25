@@ -16,6 +16,7 @@ interface SelectProps <T extends string> {
  value?: T; 
  readonly?:boolean;
  onChange?: (value: T) => void
+ onClick?: (value:T) => void
 }
 
 export const Select = <T extends string>(props:SelectProps<T>)=>  {
@@ -33,9 +34,13 @@ export const Select = <T extends string>(props:SelectProps<T>)=>  {
         if(onChange){ 
             (e.target.value as T)
         }
+        console.log('test select')
     }
+
+
+
     const optionList = useMemo(() => options?.map((currenOpt) => {
-        <option
+        return  <option
             className={cls.option}
             value={currenOpt.value}
             key={currenOpt.value}

@@ -42,11 +42,14 @@ export const ArticlePageFilters=({className}:ArticlePageFiltersProps)=>  {
 
     const onChangeOrder = useCallback((newOrder:SortOrder) => {
         dispatch(articlePageActions.setOrder(newOrder))
+        console.log('newOrder test from articlePageFilter', newOrder)
         dispatch(articlePageActions.setPage(1))
         fetchData()
     },[dispatch, fetchData])
 
     const onChangeSort = useCallback((newSort:ArticleSortField) => {
+        console.log('newSort test from articlePageFilter', newSort)
+
         dispatch(articlePageActions.setSort(newSort))
         dispatch(articlePageActions.setPage(1))
         fetchData()

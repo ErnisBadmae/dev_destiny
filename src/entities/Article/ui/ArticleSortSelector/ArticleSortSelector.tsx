@@ -1,7 +1,7 @@
 import { ArticleSortField } from 'entities/Article/model/types/article';
-import { memo, useCallback, useMemo } from 'react';
+import { memo, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
-import {classNames} from 'shared/lib/className/className';
+import { classNames } from 'shared/lib/className/className';
 import { SortOrder } from 'shared/types';
 import { Select, SelectOption } from 'shared/ui/Select';
 import cls from './ArticleSortSelector.module.scss';
@@ -50,6 +50,7 @@ export const ArticleSortSelector=memo((props:ArticleSortSelectorProps)=>  {
             content: t('количеству просмотров')
         },
     ],[t])
+    
 
 
     return (

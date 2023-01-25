@@ -2,6 +2,7 @@ import { ArticleList } from "entities/Article";
 import { memo, useCallback } from "react";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useSearchParams } from "react-router-dom";
 import { classNames } from "shared/lib/className/className";
 import {
     DynamicModuleLoader,
@@ -33,6 +34,8 @@ const ArticlesPage = (props: ArticlesPageProps) => {
         className 
     } = props
 
+    const [searchParams] = useSearchParams()
+   
     const {t} = useTranslation()
     const dispatch = useAppDispatch()
 
@@ -48,7 +51,7 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     },[dispatch])
 
     useInitialEffect(() => {
-        dispatch(initArticlesPage())
+        dispatch(initArticlesPage(searchParams))
     })
 
     if(isError) {
