@@ -4,6 +4,8 @@ import cls from './ArticleList.module.scss';
 import { memo } from 'react';
 import { ArticleListItem } from '../ArticleListItem/ArticleListItem';
 import { ArticleListItemSkeleton } from '../ArticleListItem/ArticleListItemSkeleton';
+import { SizeText, Text } from 'shared/ui/Text/Text';
+import { useTranslation } from 'react-i18next';
 
 
 
@@ -34,7 +36,7 @@ export const ArticleList=memo((props:ArticleListProps)=>  {
         view = ArticleView.SMALL
     } = props
 
-  
+    const { t } = useTranslation()
 
     const renderArticle =(article:Article) => {
         return (
@@ -47,6 +49,19 @@ export const ArticleList=memo((props:ArticleListProps)=>  {
             />
         )
     }
+
+
+    if(!isLoading && !articles.length) {
+        return (
+            <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>
+                <Text 
+                    title = {t('Статьи не найдены')}
+                    size = {SizeText.L}
+                />
+            </div>
+        )
+    }
+
 
     return (
         <div className={classNames(cls.ArticleList, {}, [className, cls[view]])}>

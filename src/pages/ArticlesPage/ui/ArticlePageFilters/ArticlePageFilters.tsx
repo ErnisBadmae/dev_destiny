@@ -1,19 +1,27 @@
-import { ArticleSortField, ArticleView, ArticleViewSelector } from 'entities/Article';
+import { ArticleSortField, ArticleTypeTabs, ArticleView, ArticleViewSelector } from 'entities/Article';
 import { ArticleSortSelector } from 'entities/Article/ui/ArticleSortSelector/ArticleSortSelector';
 
-import { getArticlesPageOrder, getArticlesPageSearch, getArticlesPageSort, getArticlesPageView } from '../../model/selectors/articlesPageSelectors';
-import { articlePageActions } from '../../model/slice/articlePageSlice';
-import { useCallback } from 'react';
+import { ArticleType } from 'entities/Article/model/types/article';
+import { useCallback, useMemo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useSelector } from 'react-redux';
 import { classNames } from 'shared/lib/className/className';
 import { useAppDispatch } from 'shared/lib/hooks/useAppDispatch/useAppDispatch';
+import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
+import { SortOrder } from 'shared/types';
 import { Card } from 'shared/ui/Card/Card';
 import { Input } from 'shared/ui/Input/Input';
+import { TabItem, Tabs } from 'shared/ui/Tabs/Tabs';
+import {
+    getArticlesPageOrder,
+    getArticlesPageSearch,
+    getArticlesPageSort,
+    getArticlesPageType,
+    getArticlesPageView
+} from '../../model/selectors/articlesPageSelectors';
+import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
+import { articlePageActions } from '../../model/slice/articlePageSlice';
 import cls from './ArticlePageFilters.module.scss';
-import { SortOrder } from 'shared/types';
-import { fetchArticlesList } from 'pages/ArticlesPage/model/services/fetchArticlesList/fetchArticlesList';
-import { useDebounce } from 'shared/lib/hooks/useDebounce/useDebounce';
 
 
 interface ArticlePageFiltersProps {
@@ -21,12 +29,14 @@ interface ArticlePageFiltersProps {
 }
 
 export const ArticlePageFilters=({className}:ArticlePageFiltersProps)=>  {
+    const dispatch = useAppDispatch()
+    const {t} = useTranslation('article')
+
     const view = useSelector(getArticlesPageView)
     const sort = useSelector(getArticlesPageSort)
     const order = useSelector(getArticlesPageOrder)
     const search = useSelector(getArticlesPageSearch)
-    const dispatch = useAppDispatch()
-    const {t} = useTranslation()
+    const type = useSelector(getArticlesPageType )
 
     const fetchData = useCallback(() => {
         dispatch(fetchArticlesList({replace:true}))
@@ -42,14 +52,11 @@ export const ArticlePageFilters=({className}:ArticlePageFiltersProps)=>  {
 
     const onChangeOrder = useCallback((newOrder:SortOrder) => {
         dispatch(articlePageActions.setOrder(newOrder))
-        console.log('newOrder test from articlePageFilter', newOrder)
         dispatch(articlePageActions.setPage(1))
         fetchData()
     },[dispatch, fetchData])
 
     const onChangeSort = useCallback((newSort:ArticleSortField) => {
-        console.log('newSort test from articlePageFilter', newSort)
-
         dispatch(articlePageActions.setSort(newSort))
         dispatch(articlePageActions.setPage(1))
         fetchData()
@@ -61,7 +68,13 @@ export const ArticlePageFilters=({className}:ArticlePageFiltersProps)=>  {
         debounceFetchData()
     },[dispatch, debounceFetchData])
 
-   
+    const onChangeType = useCallback((value:ArticleType) => {
+        dispatch(articlePageActions.setType(value))
+        dispatch(articlePageActions.setPage(1))
+        fetchData()
+    },[dispatch, fetchData])
+
+ 
     
     return (
         <div className={classNames(cls.ArticlePageFilters, {}, [className])}>
@@ -84,6 +97,11 @@ export const ArticlePageFilters=({className}:ArticlePageFiltersProps)=>  {
                     value={search}
                 />
             </Card>
+            <ArticleTypeTabs
+                className={cls.tabs}
+                value={type}
+                onChangeType={onChangeType}
+            />
         </div>
     );
 }

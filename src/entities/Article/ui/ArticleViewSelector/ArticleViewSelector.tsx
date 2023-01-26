@@ -38,9 +38,8 @@ export const ArticleViewSelector=memo((props:ArticleViewSelectorProps)=>  {
         onViewClick
     } = props
 
-    const onClick = (newView: ArticleView) =>() => {
-        onViewClick?.(newView)
-    }
+    const onClick = (newView: ArticleView) =>() =>  onViewClick?.(newView)
+    
     
 
     return (
