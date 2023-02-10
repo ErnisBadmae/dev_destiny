@@ -8,7 +8,7 @@ import { UserSchema } from 'entities/User';
 import { AddCommentFormSchema } from 'features/addComentForm/model/types/addCommentForm';
 import { LoginSchema } from 'features/AuthByUsername';
 import { ScrollSaveSchema } from 'features/ScrollSave/model/types/ScrollSaveSchema';
-import { ArticleDetailsCommentSchema, ArticleDetailsPageSchema, ArticleDetailsRecommendationSchema } from 'pages/ArticleDetailPage';
+import { ArticleDetailsPageSchema } from 'pages/ArticleDetailPage';
 import { ArticlesPageSchema } from 'pages/ArticlesPage';
 import { ProfileSchema } from './../../../../entities/Profile/model/types/profile';
 
