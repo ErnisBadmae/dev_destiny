@@ -1,6 +1,5 @@
-/* eslint-disable max-len */
 import { StateSchema } from 'app/providers/StoreProvider';
 
-export const getArticleCommentsIsLoading = (state: StateSchema) => state.articleDetailsComment?.isLoading
-export const getArticleCommentsIsError= (state: StateSchema) => state.articleDetailsComment?.isError
+export const getArticleCommentsIsLoading = (state: StateSchema) => state.articleDetailsPage?.comments?.isLoading
+export const getArticleCommentsIsError= (state: StateSchema) => state.articleDetailsPage?.comments?.isError
  
