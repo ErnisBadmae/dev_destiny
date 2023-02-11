@@ -1,6 +1,6 @@
 export {
     ArticleDetailsPageAsync as ArticleDetailPage
-} from './ui/ArticleDetailsPage.async'
+} from './ui/ArticleDetailPage/ArticleDetailsPage.async'
 
 export {
     ArticleDetailsCommentSchema

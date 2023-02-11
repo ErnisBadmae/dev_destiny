@@ -3,8 +3,11 @@ import { LoginModal } from 'features/AuthByUsername';
 import { memo, useCallback, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useDispatch, useSelector } from 'react-redux';
+import { RoutePath } from 'shared/config/routerConfig/routerConfig';
 import { classNames } from 'shared/lib/className/className';
+import { AppLink, AppLinkTheme } from 'shared/ui/AppLink/AppLink';
 import { Button, ThemeButton } from 'shared/ui/Buttons/Button';
+import { Text, TextTheme } from 'shared/ui/Text/Text';
 
 import cls from './Navbar.module.scss';
 
@@ -33,6 +36,18 @@ export const Navbar = memo(({ className }: NavbarProps) => {
     if(authData) {
         return ( 
             <header className={classNames(cls.Navbar, {}, [className])}>
+                <Text 
+                    className={cls.appName} 
+                    title={t('Mugco App')}
+                    theme={TextTheme.INVERTED} 
+                />
+                <AppLink 
+                    to={RoutePath.article_create}
+                    theme={AppLinkTheme.SECONDARY}
+                    className={cls.createBtn} 
+                >
+                    {t('Создать статью')}
+                </AppLink>
                 <Button 
                     theme={ThemeButton.CLEAR_INVERTED} 
                     className={cls.links}
