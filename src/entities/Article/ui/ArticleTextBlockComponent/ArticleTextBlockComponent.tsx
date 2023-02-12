@@ -1,4 +1,3 @@
-/* eslint-disable i18next/no-literal-string */
 import { ArticleTextBlock } from '../../model/types/article';
 import { memo } from 'react';
 import {classNames} from 'shared/lib/className/className';
@@ -6,7 +5,7 @@ import cls from './ArticleTextBlockComponent.module.scss';
 import { Text } from 'shared/ui/Text/Text';
 
 
-interface ArticleTextBlockComponentProps {
+export interface ArticleTextBlockComponentProps {
  className?: string;
  block:ArticleTextBlock
 }
