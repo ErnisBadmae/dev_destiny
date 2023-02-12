@@ -2,7 +2,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Theme } from 'app/providers/ThemeProvider';
 import { ThemeDecorator } from 'shared/config/storybook/themeDecorator/themeDecorator';
-import {ArticleEditPage} from './ArticleEditPage';
+import ArticleEditPage from './ArticleEditPage';
 
 
 export default {
@@ -15,7 +15,7 @@ export default {
 } as ComponentMeta<typeof ArticleEditPage>;
 
 const Template: ComponentStory<typeof ArticleEditPage> = (args) =>
-    <ArticleEditPage {...(args as typeof ArticleEditPage)} />;
+    <ArticleEditPage {...args} />;
 
 export const Normal = Template.bind({});
 Normal.args = {};
