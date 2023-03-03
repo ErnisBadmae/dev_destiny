@@ -19,6 +19,8 @@ import { fetchNextArticlesPage } from "../../model/services/fetchNextArticlesPag
 import { initArticlesPage } from "../../model/services/initArticlesPage/initArticlesPage";
 import { articlePageReducer, getArticles } from "../../model/slice/articlePageSlice";
 import { ArticlePageFilters } from "../ArticlePageFilters/ArticlePageFilters";
+import { FixedSizeList } from 'react-window';
+import AutoSizer from 'react-virtualized-auto-sizer';
 import cls from "./ArticlesPage.module.scss";
 
 interface ArticlesPageProps {
@@ -59,6 +61,22 @@ const ArticlesPage = (props: ArticlesPageProps) => {
     }
 
     return (
+    // <AutoSizer>
+           
+
+    //     <FixedSizeList
+    //         height={500}
+    //         width={width}
+    //         itemCount={articles.length}
+    //         itemSize={155}
+    //         onItemsRendered={() => <div>ROW</div>}
+              
+    //     >
+                    
+    //     </FixedSizeList>
+         
+    // </AutoSizer>
+
         <DynamicModuleLoader reducers={reducers} removeAfterUnmount={false}>
             <Page 
                 onScrollEnd={onLoadNextPart}
